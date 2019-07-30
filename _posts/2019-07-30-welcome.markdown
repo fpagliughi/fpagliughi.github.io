@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Welcome!"
+date:   2019-07-30 10:47:43 -0400
+categories: background
+---
+Like everything else in my professional life, it seem like the documentation always comes last, if at all. This blog has been a long time coming. I've been programming for over 25 years, doing open-source for nearly half that time. My notes are usually extensive, but often don't reach the public. This should help.
+
+A lot of the technologies that I use are new or just starting to gain traction in a broad sense. I'll try to descibe some of that here.
+
+I'm the author and maintainer of the Eclipse Paho MQTT libraries in C++ and Rust. MQTT is becoming the leading messaging system in device communications for the IoT. 
+
+I have also been writing and contributing to a number of Rust projects, particularly for Embedded Linux platforms
