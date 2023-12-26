@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "The History of the sockpp library"
+title:  "The History of the sockpp Library"
 date:   2023-12-26 10:47:43 -0400
-categories: sockpp, C++
+categories: sockpp C++
 ---
 I had just gotten back to software consulting in the early 2000's when the aftermath of the Dotcom crash was really settling in. It was tough to find free-lance work, and when you did, a two year contract would often get cancelled within the first week as budgets got cut. ("Hello, welcome. Now go home.") So I retreated up to the mountains for a while and just started hacking on some stuff.
 
@@ -14,13 +14,13 @@ The idea worked. I picked up numerous jobs and implemented them with _CtrlrFx:_ 
 
 But soon the new extensions for C++11 made most of the library moot. I planned to create a new version of _CtrlrFx_ that used `std::thread` and related classes, but it never happened. The framework didn't seem to offer a lot that wasn't available as part of the standard, in `boost`, or other open-source libraries. But it did have a bunch of classes for simple networking using an RAII _acceptor/connector_ pattern. I thought those might be useful.
 
-The one thing that bugged me about using the `socket` classes in the original C++03 version of my library was their usage in a multithreaded environment. There wasn't an easy way to send a socket from one thread to another. The C++ socket objects could not be copied, because you don't generally want to share the same file handle across objects. So to send a socket to another thread, you had to `release()` the underlying integer file descriptor from the object, send _that_ to the other thread, and reconstruct the object on the other side. This worked but it was ugly and prone to resource leaks. People would use the sometimes use the socket descriptor directly and forget to close it.
+The one thing that bugged me about using the `socket` classes in the original C++03 version of my library was their usage in a multithreaded environment. There wasn't an easy way to send a socket from one thread to another. The C++ socket objects could not be copied, because you don't generally want to share the same file handle across objects. So to send a socket to another thread, you had to `release()` the underlying integer file descriptor from the object, send _that_ to the other thread, and reconstruct the object on the other side. This worked but it was ugly and prone to resource leaks. People would sometimes use the socket descriptor directly and forget to close it.
 
 But C++11 had an elegant solution, so I extracted the socket classes from the framework, created a new library called **sockpp**, and used it to learn about C++ _move semantics._ It worked quite nicely. Making a `socket` moveable (but not copyable) fixed the ugliness and resource leaks.
 
 So I put the library in a drawer and forgot about it for years!
 
-Around 2016, I was working on a biotech robotic vision system and needed to write some test apps for a network motor controller. I remembered my lost library. Since these were throw-away tests that weren't destined for production code, I didn't bother with any legalese for the source. The tests worked and I moved on to the next job at a different company. A few months later, I got a call from a manager at the old place (hey, Keith!). They wound up using the library for production, and now the lawyers were asking about licensing. I was really busy working on a CAT scanner, so I told him I would open-source the project with a free license and make it public.
+Around 2016, I was working on a biotech robotic vision system and needed to write some test apps for a network motor controller. I remembered my lost library. Since these were throw-away tests that weren't destined for production code, I didn't bother with any legalese for the source. The tests worked and I moved on to the next job at a different company. A few months later, I got a call from a manager at the old place (hey, Keith!). They wound up using the library for production, and now the lawyers were asking about licensing. I was really busy working on a CAT scanner, so I told him I would just open-source the project with a free license and make it public.
 
 So I slapped a BSD license on the code, put it up on GitHub, and... forgot about for years.
 
