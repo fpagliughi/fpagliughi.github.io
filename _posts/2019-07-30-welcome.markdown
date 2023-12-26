@@ -8,6 +8,6 @@ Like everything else in my professional life, it seem like the documentation alw
 
 A lot of the technologies that I use are new or just starting to gain traction in a broad sense. I'll try to descibe some of that here.
 
-I'm the author and maintainer of the Eclipse Paho MQTT libraries in C++ and Rust. MQTT is becoming the leading messaging system in device communications for the IoT. 
+I'm the author and maintainer of the Eclipse Paho MQTT libraries in C++ and Rust. MQTT is becoming the leading messaging system in device communications for the IoT.
 
 I have also been writing and contributing to a number of Rust projects, particularly for Embedded Linux platforms
